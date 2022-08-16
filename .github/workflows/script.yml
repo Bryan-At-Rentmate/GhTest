@@ -31,6 +31,8 @@ jobs:
           log-response: true
       - name: Display API Response
         run: echo ${{ steps.api.outputs.response }}
+      - name: Set API Response
+        run: echo '::set-output name=API_RESP::${{ steps.api.outputs.response }}'
       - name: Set Repo Collaborators
         id: random-color-generator
         run: echo '::set-output name=SELECTED_COLOR::green'
