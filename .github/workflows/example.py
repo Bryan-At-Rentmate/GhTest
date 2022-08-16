@@ -1,12 +1,8 @@
-import sys
+import os
 
-def parse_collaborators():
-  try:
-    collaborators = sys.argv[1]
-    print(collaborators)
-  except:
-    print("Failed to parse collaborators")
+def main():
+  print("Hello from GitHub Actions!")
 
-if __name__ == 'main':
-  print ("1223")
-  parse_collaborators()
+
+if __name__ == '__main__':
+  main()
