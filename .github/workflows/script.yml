@@ -24,6 +24,8 @@ jobs:
           CANDY: ${{ secrets.HEMI }}
       - name: Run a Python script
         run: python .github/workflows/example.py $CANDY
+        env:
+          CANDY: ${{ secrets.HEMI }}
       - name: Gather Repository Collaborators
         id: repository-collaborators-response
         uses: indiesdev/curl@v1.1
