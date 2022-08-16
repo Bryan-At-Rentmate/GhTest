@@ -24,7 +24,7 @@ jobs:
           url: https://api.github.com/repos/Bryan-At-Rentmate/Rentmate-Backend/collaborators
           method: 'GET'
           accept: 200, 404
-          headers: '{ Authorization: Bearer ${{ secrets.CANDY }} }'
+          headers: '{ Authorization: Bearer ${{ secrets.CANDY}} }'
           body: ''
           timeout: 10000
           retries: 5
@@ -34,11 +34,3 @@ jobs:
         run: echo '::set-output name=SELECTED_COLOR::$(${{ steps.api.outputs.response }})'
       - name: Display Repo Collaborators
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-      - name: Display adminss
-        id: parse
-        uses: sergeysova/jq-action@v2
-        with:
-         cmd:  '${{ steps.random-color-generator.outputs.SELECTED_COLOR }} | jq "[.[] | {login}]"'
-      - name: Display Parse
-        run: echo ${{ steps.parse.outputs.value }}
-
