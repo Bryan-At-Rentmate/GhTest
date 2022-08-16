@@ -29,6 +29,8 @@ jobs:
           timeout: 10000
           retries: 5
           log-response: true
-      - run: echo ${{ fromsteps.repository-collaborators-response.outputs.response }} | jq '[ .[] | select(.permissions.admin == true) | .login]'
+      - uses: sergeysova/jq-action@v2
+        with:
+          cmd: echo ${{ fromsteps.repository-collaborators-response.outputs.response }} | jq '[ .[] | select(.permissions.admin == true) | .login]'
 
 
