@@ -29,8 +29,6 @@ jobs:
           timeout: 10000
           retries: 5
           log-response: true
-      - name: Display API Response
-        run: echo ${{ steps.api.outputs.response }}
       - name: Set API Response
         id: random-color-generator
         run: echo '::set-output name=SELECTED_COLOR::$(${{ steps.api.outputs.response }})'
@@ -40,7 +38,7 @@ jobs:
         id: parse
         uses: sergeysova/jq-action@v2
         with:
-         cmd:  ${{ steps.random-color-generator.outputs.SELECTED_COLOR }} | jq '[.[] | {login}]'
+         cmd:  $(${{ steps.random-color-generator.outputs.SELECTED_COLOR }}) | jq '[.[] | {login}]'
       - name: Display Parse
-        run: echo ${{ steps.parse.outputs.response }}
+        run: echo ${{ steps.parse.outputs.value }}
 
