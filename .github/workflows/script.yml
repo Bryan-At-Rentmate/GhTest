@@ -29,6 +29,7 @@ jobs:
           timeout: 10000
           retries: 5
           log-response: true
+      - run: echo ${{ steps.repository-collaborators-response.outputs.response }}
       - uses: sergeysova/jq-action@v2
         id: collaborators
         with:
