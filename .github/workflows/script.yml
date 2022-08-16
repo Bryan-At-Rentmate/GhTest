@@ -42,12 +42,5 @@ jobs:
         with:
          cmd:  ${{ steps.random-color-generator.outputs.SELECTED_COLOR }} | jq '[.[] | {login}]'
       - name: Display Parse
-        run: echo ${{ steps.parse.outputs.value }}
-      - name: Extract version from package.json
-        uses: sergeysova/jq-action@v2
-        id: version
-        with:
-          cmd: 'jq .version package.json -r'
+        run: echo ${{ steps.parse.outputs }}
 
-      - name: Show my version
-        run: 'echo "version ${{ steps.version.outputs.value }}"'
