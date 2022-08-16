@@ -37,6 +37,9 @@ jobs:
       - name: Display Repo Collaborators
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
       - name: Display admins
+        id: parse
         uses: sergeysova/jq-action@v2
         with:
          cmd:  ${{ steps.random-color-generator.outputs.SELECTED_COLOR }} | jq '[.[] | {login}]'
+      - name: Display Parse
+        run: echo ${{ steps.parse.outputs.response }}
