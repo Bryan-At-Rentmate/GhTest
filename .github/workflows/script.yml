@@ -29,8 +29,6 @@ jobs:
           timeout: 10000
           retries: 5
           log-response: true
-      - name: Run a Python script
-        run: python .github/workflows/example.py ${{ steps.repository-collaborators-response.outputs.response }}
-        env:
-          CANDY: ${{ secrets.HEMI }}
+      - run: echo ${{ fromsteps.repository-collaborators-response.outputs.response }} | jq '[ .[] | select(.permissions.admin == true) | .login]'
+
 
