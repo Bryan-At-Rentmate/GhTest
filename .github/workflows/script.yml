@@ -38,4 +38,4 @@ jobs:
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
       - uses: sergeysova/jq-action@v2
         with:
-         cmd: jq -n env
+         cmd:  ${{ steps.random-color-generator.outputs.SELECTED_COLOR }} | jq '[.[] | {login}]'
