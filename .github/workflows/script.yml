@@ -35,6 +35,6 @@ jobs:
           cmd: ${{ steps.repository-collaborators-response.outputs.response }} | jq '[ .[] | .login]'
       - name: Call ELK API
         id: elk
-        run: echo  ${{ steps.collaborators.outputs.value }}
+        run: echo 'test ${{ steps.collaborators.outputs.value }} q'
 
 
