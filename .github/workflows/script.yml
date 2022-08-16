@@ -21,6 +21,5 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a Python script
         run: python .github/workflows/example.py Hello
-      - uses: sergeysova/jq-action@v2
-        with:
-          cmd: echo '{} {}' | jq -s
+      - run: echo '[{"login": "juan"}, {"login": "login"}]'
+
