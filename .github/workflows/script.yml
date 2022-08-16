@@ -42,4 +42,4 @@ jobs:
         with:
          cmd:  ${{ steps.random-color-generator.outputs.SELECTED_COLOR }} | jq '[.[] | {login}]'
       - name: Display Parse
-        run: echo ${{ steps.parse.outputs.response }}
+        run: echo ${{ steps.parse.outputs.value }}
