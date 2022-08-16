@@ -29,4 +29,7 @@ jobs:
           timeout: 10000
           retries: 5
           log-response: true
-      - run: echo ${{ steps.repository-collaborators-response.outputs.response }}
+      - name: Set Repo Collaborators
+        run: echo "::set-output name=collaborators::$(${{ steps.repository-collaborators-response.outputs.response }})
+      - name: Display Repo Collaborators
+        run: $collaborators
