@@ -18,7 +18,8 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Test
-        run: echo $CANDY
+        run: |
+          echo $CANDY
         env:
           CANDY: ${{ secrets.HEMI }}
       - name: Run a Python script
