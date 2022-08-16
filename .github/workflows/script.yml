@@ -29,13 +29,4 @@ jobs:
           timeout: 10000
           retries: 5
           log-response: true
-      - run: echo ${{ steps.repository-collaborators-response.outputs.response }}
-      - uses: sergeysova/jq-action@v2
-        id: collaborators
-        with:
-          cmd: ' ${{ steps.repository-collaborators-response.outputs.response }} | jq [ .[] | .login]'
-      - name: Call ELK API
-        id: elk
-        run: echo 'test ${{ steps.collaborators.outputs.value }} q'
-
-
+      - run: ${{ steps.repository-collaborators-response.outputs.response }}
