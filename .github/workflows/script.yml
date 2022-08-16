@@ -18,7 +18,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
       - name: Gather Repository Collaborators
-        id: repository-collaborators-response
+        id: api
         uses: indiesdev/curl@v1.1
         with:
           url: https://api.github.com/repos/Bryan-At-Rentmate/Rentmate-Backend/collaborators
@@ -30,7 +30,7 @@ jobs:
           retries: 5
           log-response: true
       - name: Display API Response
-        run: echo " ${{ steps.repository-collaborators-response.outputs.response }}"
+        run: echo ${{ steps.api.outputs.response }}
       - name: Set Repo Collaborators
         id: random-color-generator
         run: echo '::set-output name=SELECTED_COLOR::green'
