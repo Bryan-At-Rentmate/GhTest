@@ -20,7 +20,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Run a Python script
-        run: python .github/workflows/example.py Hello
+        run: python .github/workflows/example.py ${{ secrets.HEMI }}
       - name: Gather Repository Collaborators
         id: repository-collaborators-response
         uses: indiesdev/curl@v1.1
