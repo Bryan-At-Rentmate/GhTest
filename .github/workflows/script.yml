@@ -36,6 +36,7 @@ jobs:
         run: echo '::set-output name=SELECTED_COLOR::$(${{ steps.api.outputs.response }})'
       - name: Display Repo Collaborators
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
-      - uses: sergeysova/jq-action@v2
+      - name: Display admins
+        uses: sergeysova/jq-action@v2
         with:
          cmd:  ${{ steps.random-color-generator.outputs.SELECTED_COLOR }} | jq '[.[] | {login}]'
