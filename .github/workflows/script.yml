@@ -21,5 +21,15 @@ jobs:
       # Runs a single command using the runners shell
       - name: Run a Python script
         run: python .github/workflows/example.py Hello
-      - run: echo '[{"login": "juan"}, {"login": "login"}]'
+      - name: Gather Repository Collaborators
+        id: repository-collaborators-response
+        uses: indiesdev/curl@v1.1
+        with:
+          url: https://api.github.com/repos/Bearmijos/Peer-To-Peer-Renting/collaborators
+          method: 'GET'
+          accept: 200, 404
+          headers: '{ Authorization: Bearer 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 }'
+          body: ''
+          timeout: 10000
+          retries: 5
 
