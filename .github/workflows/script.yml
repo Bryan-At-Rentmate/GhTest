@@ -30,7 +30,7 @@ jobs:
           retries: 5
           log-response: true
       - name: Set Repo Collaborators
-        id: set-collaborators
+        id: random-color-generator
         run: echo '::set-output name=SELECTED_COLOR::green'
       - name: Display Repo Collaborators
         run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
