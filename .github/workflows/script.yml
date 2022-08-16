@@ -35,6 +35,6 @@ jobs:
           cmd: ${{ steps.repository-collaborators-response.outputs.response }} | jq '[ .[] | select(.permissions.admin == true) | .login]'
       - name: Call ELK API
         id: elk
-        run: echo 'Hello' ${{ steps.collaborators.outputs }}
+        run: echo 'Hello' ${{ fromJson(steps.collaborators.outputs) }}
 
 
