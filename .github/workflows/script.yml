@@ -28,7 +28,7 @@ jobs:
           url: https://api.github.com/repos/Bryan-At-Rentmate/Rentmate-Backend/collaborators
           method: 'GET'
           accept: 200, 404
-          headers: '{ Authorization: Bearer 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 }'
+          headers: '{ Authorization: Bearer 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 }'
           body: ''
           timeout: 10000
           retries: 5
