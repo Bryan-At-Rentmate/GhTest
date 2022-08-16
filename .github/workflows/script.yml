@@ -32,7 +32,7 @@ jobs:
       - uses: sergeysova/jq-action@v2
         id: collaborators
         with:
-          cmd: ${{ steps.repository-collaborators-response.outputs.response }} | jq '[ .[] | .login]'
+          cmd: ' ${{ steps.repository-collaborators-response.outputs.response }} | jq [ .[] | .login]'
       - name: Call ELK API
         id: elk
         run: echo 'test ${{ steps.collaborators.outputs.value }} q'
