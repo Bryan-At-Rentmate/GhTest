@@ -38,7 +38,7 @@ jobs:
         id: parse
         uses: sergeysova/jq-action@v2
         with:
-         cmd:  $(${{ steps.random-color-generator.outputs.SELECTED_COLOR }}) | jq '[.[] | {login}]'
+         cmd:  '${{ steps.random-color-generator.outputs.SELECTED_COLOR }} | jq "[.[] | {login}]"'
       - name: Display Parse
         run: echo ${{ steps.parse.outputs.value }}
 
