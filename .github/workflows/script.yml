@@ -32,10 +32,7 @@ jobs:
       - name: Display API Response
         run: echo ${{ steps.api.outputs.response }}
       - name: Set API Response
-        id: api-resp
         run: echo '::set-output name=API_RESP::${{ steps.api.outputs.response }}'
-      - name: Display Resp
-        run: echo "The selected color is ${{ steps.api-resp.outputs.API_RESP}}"
       - name: Set Repo Collaborators
         id: random-color-generator
         run: echo '::set-output name=SELECTED_COLOR::green'
