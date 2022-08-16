@@ -29,14 +29,8 @@ jobs:
           timeout: 10000
           retries: 5
           log-response: true
-      - name: Display
+      - name: Display API Response
         run: echo " ${{ steps.repository-collaborators-response.outputs.response }}"
-      - name: Set Api Response
-        id: api-response
-        run: echo '::set-output name=MEOW::${{ steps.repository-collaborators-response.outputs.response }}'
-      - name: Display
-        run: echo " ${{ steps.api-response.outputs.MEOW }}"
-
       - name: Set Repo Collaborators
         id: random-color-generator
         run: echo '::set-output name=SELECTED_COLOR::green'
