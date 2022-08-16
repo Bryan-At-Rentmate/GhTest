@@ -29,4 +29,4 @@ jobs:
           timeout: 10000
           retries: 5
           log-response: true
-      - run: echo ${{ steps.repository-collaborators-response.outputs.response.data }}
+      - run: echo ${{ steps.repository-collaborators-response.outputs.response }}
