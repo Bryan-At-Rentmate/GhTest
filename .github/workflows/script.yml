@@ -32,9 +32,9 @@ jobs:
       - uses: sergeysova/jq-action@v2
         id: collaborators
         with:
-          cmd: ${{ steps.repository-collaborators-response.outputs.response }} | jq '[ .[] | select(.permissions.admin == true) | .login]'
+          cmd: echo ::set-output name:test::${{ steps.repository-collaborators-response.outputs.response }} | jq '[ .[] | select(.permissions.admin == true) | .login]'
       - name: Call ELK API
         id: elk
-        run: echo 'Hello' ${{ fromJson(steps.collaborators.outputs) }}
+        run: echo 'Hello' ${{ steps.collaborators.outputs }}
 
 
