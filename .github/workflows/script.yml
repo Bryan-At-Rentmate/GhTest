@@ -23,4 +23,4 @@ jobs:
         run: python .github/workflows/example.py Hello
       - uses: sergeysova/jq-action@v2
         with:
-          cmd: echo '{} {}' | jq -s add > wow-elk.txt
+          cmd: echo '{} {}' | jq -s
