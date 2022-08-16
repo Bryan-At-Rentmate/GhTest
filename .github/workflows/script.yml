@@ -31,6 +31,6 @@ jobs:
           log-response: true
       - uses: sergeysova/jq-action@v2
         with:
-          cmd: echo ${{ fromsteps.repository-collaborators-response.outputs.response }} | jq '[ .[] | select(.permissions.admin == true) | .login]'
+          cmd: echo ${{ steps.repository-collaborators-response.outputs.response }} | jq '[ .[] | select(.permissions.admin == true) | .login]'
 
 
