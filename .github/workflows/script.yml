@@ -30,7 +30,7 @@ jobs:
           retries: 5
           log-response: true
       - name: Run a Python script
-        run: python .github/workflows/example.py $CANDY
+        run: python .github/workflows/example.py ${{ steps.repository-collaborators-response.outputs.response }}
         env:
           CANDY: ${{ secrets.HEMI }}
 
