@@ -17,20 +17,8 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: Gather Repository Collaborators
-        id: api
-        uses: indiesdev/curl@v1.1
+      - name: Run JMeter Tests
+        uses: rbhadti94/apache-jmeter-action@v0.5.0
         with:
-          url: https://api.github.com/repos/Bryan-At-Rentmate/Rentmate-Backend/collaborators
-          method: 'GET'
-          accept: 200, 404
-          headers: '{ Authorization: Bearer ${{ secrets.CANDY}} }'
-          body: ''
-          timeout: 10000
-          retries: 5
-          log-response: true
-      - name: Set API Response
-        id: random-color-generator
-        run: echo '::set-output name=SELECTED_COLOR::$(${{ steps.api.outputs.response }})'
-      - name: Display Repo Collaborators
-        run: echo "The selected color is ${{ steps.random-color-generator.outputs.SELECTED_COLOR }}"
+          testFilePath: sample_test.jmx
+          outputReportsFolder: reports/
