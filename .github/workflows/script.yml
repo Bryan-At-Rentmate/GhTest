@@ -2,23 +2,18 @@
 
 name: Python script
 
-# Controls when the workflow will run
 on: push
 
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
   build:
-    # The type of runner that the job will run on
     runs-on: ubuntu-latest
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v3
-      - name: Run JMeter Tests
+      - name: Run JMeter Action on other tests
         uses: rbhadti94/apache-jmeter-action@v0.5.0
         with:
           testFilePath: sample_test.jmx
-          outputReportsFolder: reports/
+          outputReportsFolder: other_reports/
+          args: "--loglevel INFO"
